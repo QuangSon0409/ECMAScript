@@ -28,14 +28,18 @@
 
 // import homePage from "./pages/home";
 // console.log("homePage1 là: ", homePage());
+import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/home";
 import ProjectPage from "./pages/project";
 import Post from "./pages/post";
-import DetailProduct from "./pages/detail-product";
+import DetailProduct from "./pages/detail-project";
 import ContactPage from "./pages/contact";
 import AboutPage from "./pages/about";
 import { render, router } from "./lib";
 import NotFoundPage from "./pages/not-found";
+import AdminProjectsPage from "./pages/admin/project";
+import AdminAddProjectsPage from "./pages/admin/projects-add";
+import AdminEditProjectPage from "./pages/admin/projects-edit";
 
 const app = document.querySelector("#app");
 // app.innerHTML = ProjectPage();
@@ -47,7 +51,14 @@ router.on("/", () => {
 router.on("/about", () => render(AboutPage, app));
 router.on("/contact", () => render(ContactPage, app));
 router.on("/projects", () => render(ProjectPage, app));
-router.on("/projects/:id", () => render(DetailProduct, app));
+router.on("/project/:id", ({ data }) => render(() => DetailProduct(data), app));
 router.on("/posts", () => render(Post, app));
-router.resolve();
+
+// admin/projects
+router.on("/admin/projects", () => render(AdminProjectsPage, app));
+router.on("/admin/projects/add", () => render(AdminAddProjectsPage, app));
+router.on("/admin/projects/:id/edit", ({ data }) =>
+  render(() => AdminEditProjectPage(data), app)
+);
 router.notFound(() => render(NotFoundPage, app));
+router.resolve();

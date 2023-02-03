@@ -33,4 +33,5 @@ function useState(initialState) {
 // Setcount có nhiệm vụ thay đổi giá trị của count
 const [count, setCount] = useState(10);
 console.log("Giá trị cũ", count()); // 10
+setCount(20);
 console.log("Giá trị mới", count()); // 20

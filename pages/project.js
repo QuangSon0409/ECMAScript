@@ -1,13 +1,17 @@
 import HeaderPage from "../component/header";
-import { Projects } from "../data/index";
-// import { Products } from "../data/index";
+import { ProjectGalley } from "../component/ProjectGalley";
+import ProjectList from "../component/ProjectList";
+
 const ProjectPage = () => {
   return `
   ${HeaderPage()}
-  <h1>ProjectPage</h1>
-  <div class="projects">${Projects.map((project) => {
-    return `<a href="/projects/${project.id}"><div class="project-item"> ${project.name} </div></a>`;
-  })}</div>;
+  <h1>${ProjectGalley({
+    img: "https://icms-image.slatic.net/images/ims-web/fc0f16a8-78ce-4a94-9149-11563ba45571.jpg",
+  })}</h1>
+  <div class="projects">
+    
+    ${ProjectList()}
+  </div>;
   
   `;
 };

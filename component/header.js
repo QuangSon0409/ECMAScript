@@ -6,7 +6,7 @@ const HeaderPage = () => {
             <a href="/about"> About </a>
             <a href="/posts"> Posts </a>
             <a href="/contact"> Contact </a>
-            <a href="/projects"> Product </a>
+            <a href="/projects"> Project </a>
         </nav>
     </header>
     `;
